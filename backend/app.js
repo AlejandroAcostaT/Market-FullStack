@@ -4,6 +4,11 @@ const config =  require('./config.js');
 const cors = require("cors");
 const app = express();
 
+//ROUTES SET UP
+const productsRoute = require('./products/products.routes');
+
+app.use('/products', productsRoute);
+
 //MONGO_DB SETUP
 const mongoose = require('mongoose')
 const connection = mongoose.connect(config.DB_URI, {
