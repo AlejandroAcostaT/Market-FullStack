@@ -1,13 +1,7 @@
 const express = require ('express');
 const config =  require('./config.js');
-
 const cors = require("cors");
 const app = express();
-
-//ROUTES SET UP
-const productsRoute = require('./products/products.routes');
-
-app.use('/products', productsRoute);
 
 //MONGO_DB SETUP
 const mongoose = require('mongoose')
@@ -25,6 +19,16 @@ db.once("open", () => {
 
 //MAIN APP SETUP
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: false
+}));
+
+//ROUTES SET UP
+const productsRoute = require('./products/products.routes');
+
+app.use('/products', productsRoute);
+
 app.get('/', (req, res) => {
     res.send('Hello World!')
 });
