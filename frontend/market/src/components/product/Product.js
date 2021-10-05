@@ -19,6 +19,9 @@ function Product() {
                 </div>
                 <ProductItem/>
                 <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
+                <ProductItem/>
           </div>
           <Pagination/>
       </div>

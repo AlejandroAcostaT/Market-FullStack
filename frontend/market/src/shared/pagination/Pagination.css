@@ -11,6 +11,32 @@
     margin-right: 3%;
 }
 
-.button{
+.pagination-button{
+    background-color: white;
+    color: var(--secondaryColor);
+    border-radius: 0px;
     margin-right: 0%;
+}
+
+.pagination-button__active{
+    color: var(--activeColor);
+}
+
+.pagination-button__disabled{
+    background-color: var(--buttonHoverColor);
+    color: var(--disabledColor);
+    cursor:default;
+}
+
+.pagination-buttonNumber{
+    min-width: 30px;
+}
+
+.pagination-buttonNumber__active{
+    background-color: var(--activeColor);
+    color: white;
+}
+
+.pagination-buttonNumber__active:hover{
+    background-color: var(--primaryColor);
 }

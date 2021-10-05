@@ -2,11 +2,12 @@
   --primaryColor: rgb(29, 29, 146);
   --activeColor: rgb(40, 57, 214);
   --secondaryColor: rgb(53, 50, 61);
-
+  --disabledColor: rgb(151, 151, 151);
   --shadow: 3px 0px 3px darkgray;
 
-  --buttonHoverColor: rgb(250, 250, 250);  
+  --buttonHoverColor: rgb(219, 219, 219);  
   --buttonShadow: 0px 2px 3px darkgray;
+
 }
 
 
