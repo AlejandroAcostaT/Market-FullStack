@@ -1,0 +1,7 @@
+.headerContainer{
+    display: flex;
+    background-color: #fff;
+    color: var(--primaryColor);
+    box-shadow: var(--shadow);
+}
+
