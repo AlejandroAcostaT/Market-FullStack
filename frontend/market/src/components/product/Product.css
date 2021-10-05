@@ -1,0 +1,23 @@
+.table{
+    padding-left: 3.5%;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+}
+
+.table--header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.table--title{
+    flex:1;
+    color: var(--secondaryColor);
+}
+
+.table--title__medium{
+    flex:2
+}
+
+.table--title__big{
+    flex:3
+}
