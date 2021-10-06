@@ -40,13 +40,16 @@ module.exports = class ProductsDao {
         return await product.save();
     }
 
-    async listProducts(limit = 5, page = 0) {
-        const products = await this.Product.find()
+    async listProducts(limit = 5, page = 0, status = undefined) {
+        let query = {};
+        if(status)
+            query = {active: status}
+        const products = await this.Product.find(query)
             .skip(limit * page)
             .limit(limit)
             .exec();
 
-        const totalProducts = await this.Product.count();
+        const totalProducts = await this.Product.count(query);
         const totalPages = Math.ceil(totalProducts/limit);
         const currentPage = page;
         return {

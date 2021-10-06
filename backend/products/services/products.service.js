@@ -17,8 +17,8 @@ module.exports = class ProductsService {
         return ProductsDao.getInstance().addProduct(resource);
     }
 
-    list(limit, page) {
-        return ProductsDao.getInstance().listProducts(limit, page);
+    list(limit, page, status) {
+        return ProductsDao.getInstance().listProducts(limit, page, status);
     };
 
     readById(resourceId) {

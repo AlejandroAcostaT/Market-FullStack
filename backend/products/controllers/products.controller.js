@@ -7,7 +7,8 @@ module.exports = class ProductsController {
         const productsService = ProductsService.getInstance();
         const limit = Number(req.query.limit) || 5;
         const page = Number(req.query.page) || 0;
-        const products = await productsService.list(limit, page);
+        const status = req.query.status ? req.query.status : null;
+        const products = await productsService.list(limit, page, status);
         res.status(200).send(products);
     }
 
