@@ -1,6 +1,6 @@
 import './ProductHeader.css';
 
-function ProductHeader() {
+const ProductHeader = ({setProductFilter, productFilter})=> {
 
   return (
       <div className='container'>
@@ -10,9 +10,20 @@ function ProductHeader() {
             <div className='header-content header-content__left'>
                 <h2 className='headerSubtitle'>Filter by Status:</h2>
 
-                <button className='button button__main button__first'>All</button>
-                <button className='button'>Active</button>
-                <button className='button'>Hidden</button>
+                <button 
+                  className={productFilter === undefined ? 'button button__first button__main':'button button__first'} 
+                  onClick={()=>setProductFilter(undefined)}
+                > All </button>
+
+                <button 
+                  className={productFilter === true ? 'button button__main':'button'} 
+                  onClick={()=>setProductFilter(true)}
+                > Active </button>
+
+                <button 
+                  className={productFilter === false ? 'button button__main':'button'} 
+                  onClick={()=>setProductFilter(false)}
+                > Hidden </button>
             </div>
 
             <div className='header-content header-content__right'>
