@@ -33,13 +33,7 @@ function Product() {
     getProducts();
   }, [currentPage, productFilter, refresh]);
 
-  //DELETE PRODUCT
-  const deleteProduct = async (id) => {
-    await ApiProductsService.deleteProduct(id);
-    setRefresh(!refresh);
-  }
-
-  //Form Showing Logic
+  //-----Form Showing Logic-------
   const changeFormStatus = () => {
     setIsForm(!isForm);
   }
@@ -59,19 +53,32 @@ function Product() {
     changeFormStatus();
     setSelectedProduct({});
   }
+  //-----END Form Showing Logic-----//
 
-  //Create Product
+  //CREATE PRODUCT
   const createProduct = async (product) => {
     showList();
     await ApiProductsService.addProduct(product);
     setRefresh(!refresh);
   }
   
-  //Edit Product
+  //EDIT PRODUCT
   const editProduct = async (id, product) => {
     showList();
     await ApiProductsService.editProduct(id, product);
     setRefresh(!refresh);
+  }
+
+  //DELETE PRODUCT
+  const deleteProduct = async (id) => {
+    await ApiProductsService.deleteProduct(id);
+    setRefresh(!refresh);
+  }
+
+  //FilterChange
+  const onFilterChange = (filter) => {
+    setProductFilter(filter);
+    setCurrentPage(0)
   }
 
   return (
@@ -83,7 +90,7 @@ function Product() {
           <ProductHeader 
             title={'List of Products'}
             isForm = {isForm}
-            setProductFilter={(filter)=>setProductFilter(filter)} 
+            setProductFilter={(filter)=>onFilterChange(filter)} 
             productFilter={productFilter}
             changeFormStatus={()=>showAddForm()}
           />
