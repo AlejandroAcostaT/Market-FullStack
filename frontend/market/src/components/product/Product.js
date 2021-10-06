@@ -83,7 +83,7 @@ function Product() {
 
   return (
     <div className='container-main'>
-        
+      
       { 
         !isForm &&
         <>
@@ -94,7 +94,12 @@ function Product() {
             productFilter={productFilter}
             changeFormStatus={()=>showAddForm()}
           />
+        </>
+      }
 
+      {
+        !isForm && products.length > 0 &&
+        <>
           <div className='table container'>
             <div className='table--header container'>
               <h3 className='table--title table--title__medium'>Name</h3>
