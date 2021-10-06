@@ -26,10 +26,13 @@ module.exports = class ProductsMiddleware {
     }
 
     validateLimitAndPageQuery(req, res, next) {
-        if(req.query && req.query.limit && req.query.page){
+        if(req.query && req.query.limit && req.query.page && req.query.status){
             if(req.query.limit < 0 || req.query.page < 0){
                 req.query.limit = 5;
                 req.query.page = 0;
+            }
+            if(req.query.status !== 'true' && req.query.status !== 'false'){
+                req.query.status = undefined
             }
             next();
         }else{

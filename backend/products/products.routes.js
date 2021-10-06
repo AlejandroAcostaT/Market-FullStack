@@ -9,6 +9,7 @@ const productsMiddleware = new ProductsMiddleware();
 
 
 router.get('/', [
+    productsMiddleware.validateLimitAndPageQuery,
     productsController.listProducts
 ]);
 
