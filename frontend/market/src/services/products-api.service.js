@@ -11,11 +11,30 @@ const ApiProductsService = {
     },
 
     addProduct: async (product) => {
-
+        const res = await fetch(api, 
+            {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(product)
+            });
+        const data = await res.json();
+        return data;
     },
 
-    editProduct: async (id) => {
+    editProduct: async (id, product) => {
         const url=api+'/'+id;
+        const res = await fetch(url, 
+            {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(product)
+            });
+        const data = await res.json();
+        return data;
     },
 
     deleteProduct: async (id) => {

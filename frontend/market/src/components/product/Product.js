@@ -39,7 +39,7 @@ function Product() {
     setRefresh(!refresh);
   }
 
-  //CHANGE TO FORM
+  //Form Showing Logic
   const changeFormStatus = () => {
     setIsForm(!isForm);
   }
@@ -57,7 +57,21 @@ function Product() {
 
   const showList = () => {
     changeFormStatus();
-    setSelectedProduct({})
+    setSelectedProduct({});
+  }
+
+  //Create Product
+  const createProduct = async (product) => {
+    showList();
+    await ApiProductsService.addProduct(product);
+    setRefresh(!refresh);
+  }
+  
+  //Edit Product
+  const editProduct = async (id, product) => {
+    showList();
+    await ApiProductsService.editProduct(id, product);
+    setRefresh(!refresh);
   }
 
   return (
@@ -110,7 +124,9 @@ function Product() {
         <ProductForm 
           isEdit={isEdit} 
           product={selectedProduct} 
-          changeFormStatus={()=>showList()}
+          onCancel={()=>showList()}
+          onCreate={(product)=>createProduct(product)}
+          onEdit={(id, product)=>editProduct(id, product)}
         />
       }
         
