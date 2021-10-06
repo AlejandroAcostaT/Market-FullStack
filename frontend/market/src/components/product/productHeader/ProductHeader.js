@@ -1,12 +1,13 @@
 import './ProductHeader.css';
 
-const ProductHeader = ({setProductFilter, productFilter})=> {
+const ProductHeader = ({title, isForm, setProductFilter, productFilter, changeFormStatus})=> {
 
   return (
       <div className='container'>
-        <h1 className='headerTitle headerTitle__secondary'>List of Products</h1>
-
-        <div className='header'>
+        <h1 className='headerTitle headerTitle__secondary'>{title}</h1>
+        {
+          !isForm && 
+          <div className='header'>
             <div className='header-content header-content__left'>
                 <h2 className='headerSubtitle'>Filter by Status:</h2>
 
@@ -27,9 +28,11 @@ const ProductHeader = ({setProductFilter, productFilter})=> {
             </div>
 
             <div className='header-content header-content__right'>
-                <button className='button button__main'>Add Product +</button>
+                <button className='button button__main' onClick={()=>changeFormStatus()}>Add Product +</button>
             </div>
-        </div>
+          </div>
+        }
+        
         
       </div>
     

@@ -20,6 +20,8 @@ const ApiProductsService = {
 
     deleteProduct: async (id) => {
         const url=api+'/'+id;
+        const res = await fetch(url, {method: 'DELETE'});
+        return res.status;
     }
 }
 

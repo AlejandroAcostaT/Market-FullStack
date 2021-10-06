@@ -1,6 +1,6 @@
 import './Pagination.css';
 
-const Pagination = ({pagination, currentPage, setCurrentPage}) => {
+const Pagination = ({totalPages, currentPage, setCurrentPage}) => {
   const pageButtons = [];
   const createPageButtons = () =>{
     //Previous Button
@@ -21,7 +21,7 @@ const Pagination = ({pagination, currentPage, setCurrentPage}) => {
     )
 
     //Setting Buttons for the number of Pages
-    for(let i=0; i<pagination.totalPages; i++){
+    for(let i=0; i<totalPages; i++){
       className='button pagination-button pagination-buttonNumber';
       if(currentPage === i)
         className=className+' pagination-buttonNumber__active'
@@ -33,7 +33,7 @@ const Pagination = ({pagination, currentPage, setCurrentPage}) => {
 
     //Next Button
     className = '';
-    currentPage+1 === pagination.totalPages ?
+    currentPage+1 === totalPages ?
       className = classNameBase+'pagination-button__disabled' :
       className = classNameBase+'pagination-button__active'
 
@@ -42,7 +42,7 @@ const Pagination = ({pagination, currentPage, setCurrentPage}) => {
         className={className} 
         key={'next'} 
         onClick={()=>setCurrentPage(currentPage+1)}
-        disabled={currentPage+1 === pagination.totalPages}
+        disabled={currentPage+1 === totalPages}
         > Next </button>
     )
     return pageButtons;
